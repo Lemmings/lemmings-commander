@@ -39,8 +39,8 @@ var init = function(){
         agentManager.run();
         update( function(){
             agentManager.heartbeat();
-        } );
-       next(null);
+        });
+        next(null);
     });
     tasklists.push(function frontend_initialize(next){
         var instanceHTTPServer = create_http_server();
