@@ -2,7 +2,7 @@
 {
  "agent":"in_http.js",
  "args":{
-  "url":"http://www.yahoo.com"
+  "url":"http://www.yahoo.co.jp"
  }
 },
 {
