@@ -14,7 +14,7 @@
 {
  "agent":"sleep.js",
  "args":{
-  "timer":10
+  "timer":60
  }
 }
 ]
