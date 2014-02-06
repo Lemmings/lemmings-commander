@@ -1,0 +1,20 @@
+[
+{
+ "agent":"in_http.js",
+ "args":{
+  "url":"http://www.yahoo.com"
+ }
+},
+{
+ "agent":"out_console.js",
+ "args":{
+  "input":"in_http.js"
+ }
+},
+{
+ "agent":"sleep.js",
+ "args":{
+  "timer":10
+ }
+}
+]

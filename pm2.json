@@ -1,0 +1,9 @@
+[{
+  "name" : "fpo-watcher",
+  "script" : "./app.js",
+  "exec_mode" : "fork_mode",
+  "instance" : "1",
+  "port" : 8080,
+  "out_file"   : "./out.log",
+  "error_file" : "./err.log"
+}]

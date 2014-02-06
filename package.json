@@ -1,0 +1,13 @@
+{
+  "name": "fpo-wather",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=0.8"
+  },
+  "dependencies": {
+    "event-fsm": "",
+    "connect": "2.11.0",
+    "async" : "0.2.9"
+  }
+}
