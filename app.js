@@ -36,6 +36,7 @@ var init = function(){
         });
     });
     tasklists.push(function task_initialize(next){
+        agentManager.run();
         update( function(){
             agentManager.heartbeat();
         } );

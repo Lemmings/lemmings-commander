@@ -20,6 +20,7 @@ var update = function(func){
 
 ph.initialize(function(err){
 am.initialize(ph, function(err){
+    am.run();
     update( function(){
         am.heartbeat();
     } );
