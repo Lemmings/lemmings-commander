@@ -13,8 +13,7 @@ var init = function(){
     var pluginHandler = new PluginHandler('./plugins');
     var agentManager = new AgentManager('./agents');
 
-
-    var task = new Task(1000, 1);
+    var task = new Task(100, 1);
 
     task.start();
     task.on('report', function(count){
