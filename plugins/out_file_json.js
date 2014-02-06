@@ -1,5 +1,7 @@
+var require = null;
 return {
-    initialize : function(){
+    initialize : function(_require){
+        require = _require;
     },
     finalize : function(){
     },
