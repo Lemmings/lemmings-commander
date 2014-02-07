@@ -6,7 +6,7 @@ fixed point observation
 ## Install
 ```
 git clone git@github.com:you21979/lemmings.git
-cd fpo-watcher
+cd lemmings
 npm install
 node app
 ```
