@@ -21,7 +21,7 @@ MIT
 ## チュートリアル
 単に起動するだけではなにもしないです。
 [www.yahoo.co.jp] を取得してコンソールに出力するサンプルがあるのでそれを使います。
-fpo-watcherのディレクトリで以下のコマンドを実行してリンクを作成します
+lemmingsのディレクトリで以下のコマンドを実行してリンクを作成します
 ```
 cd agents
 ln -s ../agents_define/yahoo_get.json
