@@ -2,9 +2,9 @@ exports.initialize = function(){
 };
 exports.finalize = function(){
 };
-exports.run = function(inputTools, outputTools, callback){
+exports.run = function(inputTools, callback){
     var args = inputTools.args();
-    outputTools.file(args.file, JSON.stringify(inputTools.kvs[args.input]), function(err){
-        callback(null);
+    fs.writeFile(args.file, JSON.stringify(inputTools.kvs[args.input]), function(err){
+        callback(err);
     });
 };

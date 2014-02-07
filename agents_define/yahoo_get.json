@@ -1,20 +1,14 @@
 [
 {
- "agent":"in_http.js",
+ "plugin":"in_http",
  "args":{
   "url":"http://www.yahoo.co.jp"
  }
 },
 {
- "agent":"out_console.js",
+ "plugin":"out_console",
  "args":{
-  "input":"in_http.js"
- }
-},
-{
- "agent":"sleep.js",
- "args":{
-  "timer":60
+  "input":"in_http"
  }
 }
 ]
