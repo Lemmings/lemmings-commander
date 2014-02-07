@@ -1,11 +1,11 @@
-fpo-watcher
-===========
+Lemmings
+========
 
 fixed point observation
 
 ## Install
 ```
-git clone git@github.com:you21979/fpo-watcher.git
+git clone git@github.com:you21979/lemmings.git
 cd fpo-watcher
 npm install
 node app
