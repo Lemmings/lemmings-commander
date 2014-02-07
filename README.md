@@ -5,8 +5,8 @@ fixed point observation
 
 ## Install
 ```
-git clone git@github.com:you21979/lemmings.git
-cd lemmings
+git clone https://github.com/Lemmings/lemmings-strategy.git
+cd lemmings-strategy
 npm install
 node app
 ```
