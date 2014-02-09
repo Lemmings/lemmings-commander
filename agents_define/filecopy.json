@@ -1,0 +1,16 @@
+[
+{
+ "plugin":"copy",
+ "args":{
+  "copy":[
+   {"from":"/var/log/dmesg","to":"/tmp/a.log"}
+  ]
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":300
+ }
+}
+]
