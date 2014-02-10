@@ -1,5 +1,5 @@
 [{
-  "name" : "fpo-watcher",
+  "name" : "lemmings-strategy",
   "script" : "./app.js",
   "exec_mode" : "fork_mode",
   "instance" : "1",
