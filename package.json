@@ -8,6 +8,7 @@
   "dependencies": {
     "event-fsm": "0.0.3",
     "connect": "2.11.0",
+    "redis": "",
     "async" : "0.2.9"
   }
 }
