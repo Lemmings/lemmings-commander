@@ -10,6 +10,7 @@
     "request-limitter": "",
     "status-api": "",
     "connect": "2.11.0",
+    "iniparser": "1.0.5",
     "redis": "",
     "async" : "0.2.9"
   }
