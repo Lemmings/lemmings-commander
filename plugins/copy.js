@@ -9,13 +9,13 @@ exports.run = function(inputTools, callback){
         async.inc();
         fs.readFile(v.from, function(err, data){
             if(err){
-                console.error('readerror %s', fromfile);
+                console.error('readerror %s', v.from);
                 async.dec();
                 return;
             }
             fs.writeFile(v.to, data, function(err){
                 if(err){
-                    console.error('writeerror %s', tofile);
+                    console.error('writeerror %s', v.to);
                 }
                 async.dec();
             });
