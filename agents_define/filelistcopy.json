@@ -2,8 +2,8 @@
 {
  "plugin":"listcopy",
  "args":{
-  "from" : "/var/log",
-  "to" : "/tmp",
+  "srcdir" : "/var/log",
+  "destdir" : "/tmp",
   "files":[
    "dmesg"
   ]

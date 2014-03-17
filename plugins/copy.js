@@ -1,7 +1,5 @@
-exports.initialize = function(){
-};
-exports.finalize = function(){
-};
+exports.initialize = function(){};
+exports.finalize = function(){};
 exports.run = function(inputTools, callback){
     var args = inputTools.args();
     var async = new inputTools.SimpleAsync(function(){
@@ -10,7 +8,15 @@ exports.run = function(inputTools, callback){
     args.copy.forEach(function(v){
         async.inc();
         fs.readFile(v.from, function(err, data){
+            if(err){
+                console.error('readerror %s', fromfile);
+                async.dec();
+                return;
+            }
             fs.writeFile(v.to, data, function(err){
+                if(err){
+                    console.error('writeerror %s', tofile);
+                }
                 async.dec();
             });
         });

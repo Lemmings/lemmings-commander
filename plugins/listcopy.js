@@ -6,8 +6,8 @@ exports.run = function(inputTools, callback){
         callback(null);
     });
     args.files.forEach(function(v){
-        var fromfile = args.from + '/' + v;
-        var tofile = args.to + '/' + v;
+        var fromfile = args.srcdir + '/' + v;
+        var tofile = args.destdir + '/' + v;
         async.inc();
         fs.readFile(fromfile, function(err, data){
             if(err){
