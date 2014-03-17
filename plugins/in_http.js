@@ -1,13 +1,7 @@
-var agent = null;
-var http = null;
-exports.initialize = function(){
-    http = require('http');
-    agent = new http.Agent({maxSockets: 1});
-};
-exports.finalize = function(){
-};
+exports.initialize = function(){};
+exports.finalize = function(){};
 exports.run = function(inputTools, callback){
-    inputTools.http_get(inputTools.args().url, agent, function(err, res){
+    inputTools.crawler.request_get_raw(inputTools.args().url, function(err, res){
         callback(err, res);
     });
 };
