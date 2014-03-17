@@ -1,0 +1,18 @@
+[
+{
+ "plugin":"listcopy",
+ "args":{
+  "from" : "/var/log",
+  "to" : "/tmp",
+  "files":[
+   "dmesg"
+  ]
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":300
+ }
+}
+]
