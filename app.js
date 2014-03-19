@@ -28,7 +28,7 @@ var init = function(){
 
     
     config.setup('./config/app.ini', tasklists, pluginHandler, agentManager);
-    tasklists.push(function initialize(next){
+    tasklists.push(function running_agent(next){
         update( function(){
             agentManager.heartbeat();
         });
