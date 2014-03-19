@@ -4,8 +4,10 @@ var crawler = require('./lib/crawler');
 var setup = exports.setup = function(filename, tasks, pluginHandler, agentManager){
     var plugins = [];
     var agents = [];
+    var config = {};
     tasks.push(function config_ini(next){
-        config_read.readApp(filename, function(err, config){
+        config_read.readApp(filename, function(err, _config){
+            config = _config;
             Object.keys(config.requestlimit).forEach(function(key){
                 var waittime = config.requestlimit[key][0];
                 var count = config.requestlimit[key][1];
@@ -33,7 +35,7 @@ var setup = exports.setup = function(filename, tasks, pluginHandler, agentManage
     });
     tasks.push(function config_phase2_initialize(next){
         agentManager.addDir(agents);
-        agentManager.initialize(pluginHandler, function(err){
+        agentManager.initialize(pluginHandler, config, function(err){
             next(err);
         });
     });
