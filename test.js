@@ -1,8 +1,6 @@
 var Task = require('./lib/task');
 var AgentManager = require('./lib/agent_manager');
 var PluginHandler = require('./lib/plugin_handler');
-var ph = new PluginHandler("./plugins");
-var am = new AgentManager("./test");
 var async = require('async');
 var config = require('./config');
 var crawler = require('./lib/crawler');
@@ -27,20 +25,11 @@ var update = function(func){
         update(func);
     });
 };
+var ph = new PluginHandler(["./plugins"]);
+var am = new AgentManager(["./test"]);
 
 var tasks = [];
-config.setup(tasks);
-tasks.push(function(next){
-    ph.initialize(function(err){
-        next(err);
-    });
-});
-tasks.push(function(next){
-    am.initialize(ph, function(err){
-        am.run();
-        next(err);
-    });
-});
+config.setup('./config/test.ini', tasks, ph, am);
 async.waterfall(tasks, function(err, val){
     update( function(){
         am.heartbeat();

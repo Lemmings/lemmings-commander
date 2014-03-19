@@ -9,10 +9,9 @@ var init = function(){
     var HOSTNAME = process.env.HOSTNAME;
     var PORT = process.env.PORT || 3000;
     var tasklists = [];
-    var config = {};
 
-    var pluginHandler = new PluginHandler('./plugins');
-    var agentManager = new AgentManager('./agents');
+    var pluginHandler = new PluginHandler(["./plugins"]);
+    var agentManager = new AgentManager(["./test"]);
 
     var task = new Task(100, 1);
 
@@ -28,21 +27,11 @@ var init = function(){
     };
 
     
-    config.setup(tasklists);
-    // サーバー設定ファイル読み込み
-    tasklists.push(function config_phase1_initialize(next){
-        pluginHandler.initialize(function(err){
-            agentManager.initialize(pluginHandler, function(err){
-                next(err);
-            });
-        });
-    });
-    tasklists.push(function task_initialize(next){
-        agentManager.run();
+    config.setup('./config/app.ini', tasklists, pluginHandler, agentManager);
+    tasklists.push(function initialize(next){
         update( function(){
             agentManager.heartbeat();
         });
-        next(null);
     });
     tasklists.push(function frontend_initialize(next){
         var instanceHTTPServer = create_http_server();
