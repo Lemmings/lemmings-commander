@@ -5,6 +5,14 @@ var ph = new PluginHandler("./plugins");
 var am = new AgentManager("./test");
 var async = require('async');
 var config = require('./config');
+var crawler = require('./lib/crawler');
+
+crawler.debug.on('limit_request', function(tag, obj){
+    console.log('limit_request %s[%s]',tag,obj.url);
+});
+crawler.debug.on('request_get_json', function(tag, obj){
+    console.log('request_get_json %s[%s]',tag,obj.url);
+});
 
 var task = new Task(1000, 1);
 
