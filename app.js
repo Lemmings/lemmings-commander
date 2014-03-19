@@ -33,6 +33,7 @@ var init = function(){
             agentManager.heartbeat();
         });
     });
+/*
     tasklists.push(function frontend_initialize(next){
         var instanceHTTPServer = create_http_server();
 
@@ -41,7 +42,7 @@ var init = function(){
             next(null);
         });
     });
-
+*/
     return tasklists;
 }
 
