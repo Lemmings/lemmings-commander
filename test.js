@@ -3,6 +3,8 @@ var AgentManager = require('./lib/agent_manager');
 var PluginHandler = require('./lib/plugin_handler');
 var ph = new PluginHandler("./plugins");
 var am = new AgentManager("./test");
+var async = require('async');
+var config = require('./config');
 
 var task = new Task(1000, 1);
 
@@ -17,13 +19,23 @@ var update = function(func){
     });
 };
 
-
-ph.initialize(function(err){
-am.initialize(ph, function(err){
-    am.run();
+var tasks = [];
+config.setup(tasks);
+tasks.push(function(next){
+    ph.initialize(function(err){
+        next(err);
+    });
+});
+tasks.push(function(next){
+    am.initialize(ph, function(err){
+        am.run();
+        next(err);
+    });
+});
+async.waterfall(tasks, function(err, val){
     update( function(){
         am.heartbeat();
     } );
 });
-});
+
 

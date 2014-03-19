@@ -3,6 +3,7 @@ var create_http_server = require('./server/http_server');
 var PluginHandler = require('./lib/plugin_handler');
 var AgentManager = require('./lib/agent_manager');
 var Task = require('./lib/task');
+var config = require('./config');
 
 var init = function(){
     var HOSTNAME = process.env.HOSTNAME;
@@ -26,6 +27,8 @@ var init = function(){
         });
     };
 
+    
+    config.setup(tasklists);
     // サーバー設定ファイル読み込み
     tasklists.push(function config_phase1_initialize(next){
         pluginHandler.initialize(function(err){
