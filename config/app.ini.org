@@ -1,2 +1,2 @@
 [requestlimit]
-www.yahoo.com=60,10
+www.yahoo.com=[60,10]
