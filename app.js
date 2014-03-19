@@ -1,5 +1,5 @@
 var async = require('async');
-var create_http_server = require('./server/http_server');
+//var create_http_server = require('./server/http_server');
 var PluginHandler = require('./lib/plugin_handler');
 var AgentManager = require('./lib/agent_manager');
 var Task = require('./lib/task');

@@ -5,7 +5,7 @@ var setup = exports.setup = function(filename, tasks, pluginHandler, agentManage
     var plugins = [];
     var agents = [];
     var config = {};
-    tasks.push(function config_ini(next){
+    tasks.push(function config_ini_read(next){
         config_read.readApp(filename, function(err, _config){
             config = _config;
             Object.keys(config.requestlimit).forEach(function(key){
