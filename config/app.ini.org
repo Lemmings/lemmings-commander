@@ -2,5 +2,5 @@
 www.yahoo.com=[60,10]
 
 [commander]
-agentdir=[]
+tacticsdir=[]
 strategydir=[]
