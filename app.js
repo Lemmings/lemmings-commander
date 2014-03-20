@@ -1,8 +1,8 @@
 var async = require('async');
-var TacticsHandler = require('./lib/tactics_handler');
-var StrategyManager = require('./lib/strategy_manager');
-var Task = require('./lib/task');
-var config = require('./config');
+var TacticsHandler = require(__dirname+'/lib/tactics_handler');
+var StrategyManager = require(__dirname+'/lib/strategy_manager');
+var Task = require(__dirname+'/lib/task');
+var config = require(__dirname+'/config');
 
 var init = function(){
     var HOSTNAME = process.env.HOSTNAME;
