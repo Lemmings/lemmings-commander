@@ -1,6 +1,6 @@
 var Task = require('./lib/task');
-var AgentManager = require('./lib/agent_manager');
-var PluginHandler = require('./lib/plugin_handler');
+var StrategyManager = require('./lib/strategy_manager');
+var TacticsHandler = require('./lib/tactics_handler');
 var async = require('async');
 var config = require('./config');
 var crawler = require('./lib/crawler');
@@ -25,8 +25,8 @@ var update = function(func){
         update(func);
     });
 };
-var ph = new PluginHandler([]);
-var am = new AgentManager([]);
+var ph = new TacticsHandler([]);
+var am = new StrategyManager([]);
 
 var tasks = [];
 config.setup('./config/test.ini', tasks, ph, am);

@@ -1,9 +1,9 @@
 var config_read = require('./config_read');
 var crawler = require('./lib/crawler');
 
-var setup = exports.setup = function(filename, tasks, pluginHandler, agentManager){
-    var plugins = [];
-    var agents = [];
+var setup = exports.setup = function(filename, tasks, tacticsHandler, strategyManager){
+    var tactics = [];
+    var strategy = [];
     var config = {};
     tasks.push(function config_ini_read(next){
         config_read.readApp(filename, function(err, _config){
@@ -14,13 +14,13 @@ var setup = exports.setup = function(filename, tasks, pluginHandler, agentManage
                 console.log('setup requestlimit host[%s],wait[%d],count[%d]', key, waittime, count);
                 crawler.limitTable.set(key, count, waittime);
             });
-            Object.keys(config.strategy).forEach(function(key){
+            Object.keys(config.commander).forEach(function(key){
                 switch(key){
-                case 'plugindir':
-                    plugins = config.strategy[key];
+                case 'tacticsdir':
+                    tactics = config.commander[key];
                     break;
-                case 'agentdir':
-                    agents = config.strategy[key];
+                case 'strategydir':
+                    strategy = config.commander[key];
                     break;
                 }
             });
@@ -28,19 +28,19 @@ var setup = exports.setup = function(filename, tasks, pluginHandler, agentManage
         });
     });
     tasks.push(function config_phase1_initialize(next){
-        pluginHandler.addDir(plugins);
-        pluginHandler.initialize(function(err){
+        tacticsHandler.addDir(tactics);
+        tacticsHandler.initialize(function(err){
             next(err);
         });
     });
     tasks.push(function config_phase2_initialize(next){
-        agentManager.addDir(agents);
-        agentManager.initialize(pluginHandler, config, function(err){
+        strategyManager.addDir(strategy);
+        strategyManager.initialize(tacticsHandler, config, function(err){
             next(err);
         });
     });
     tasks.push(function task_initialize(next){
-        agentManager.run();
+        strategyManager.run();
         next(null);
     });
 }

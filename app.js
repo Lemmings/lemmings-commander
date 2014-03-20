@@ -1,6 +1,6 @@
 var async = require('async');
-var PluginHandler = require('./lib/plugin_handler');
-var AgentManager = require('./lib/agent_manager');
+var TacticsHandler = require('./lib/tactics_handler');
+var StrategyManager = require('./lib/strategy_manager');
 var Task = require('./lib/task');
 var config = require('./config');
 
@@ -9,8 +9,8 @@ var init = function(){
     var PORT = process.env.PORT || 3000;
     var tasklists = [];
 
-    var pluginHandler = new PluginHandler([]);
-    var agentManager = new AgentManager([]);
+    var tacticsHandler = new TacticsHandler([]);
+    var strategyManager = new StrategyManager([]);
 
     var task = new Task(100, 1);
 
@@ -26,10 +26,10 @@ var init = function(){
     };
 
     
-    config.setup('./config/app.ini', tasklists, pluginHandler, agentManager);
-    tasklists.push(function running_agent(next){
+    config.setup('./config/app.ini', tasklists, tacticsHandler, strategyManager);
+    tasklists.push(function running_strategy(next){
         update( function(){
-            agentManager.heartbeat();
+            strategyManager.heartbeat();
         });
     });
     return tasklists;

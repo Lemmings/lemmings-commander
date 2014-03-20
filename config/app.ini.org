@@ -1,6 +1,6 @@
 [requestlimit]
 www.yahoo.com=[60,10]
 
-[strategy]
-plugindir=[]
+[commander]
 agentdir=[]
+strategydir=[]
