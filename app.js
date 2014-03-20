@@ -4,7 +4,7 @@ var StrategyManager = require(__dirname+'/lib/strategy_manager');
 var Task = require(__dirname+'/lib/task');
 var config = require(__dirname+'/config');
 
-var init = function(){
+var init = function(configfile){
     var HOSTNAME = process.env.HOSTNAME;
     var PORT = process.env.PORT || 3000;
     var tasklists = [];
@@ -26,7 +26,7 @@ var init = function(){
     };
 
     
-    config.setup('./config/app.ini', tasklists, tacticsHandler, strategyManager);
+    config.setup(configfile, tasklists, tacticsHandler, strategyManager);
     tasklists.push(function running_strategy(next){
         update( function(){
             strategyManager.heartbeat();
@@ -37,11 +37,15 @@ var init = function(){
 
 
 var main = function(){
+    var configfile = './config/app.ini';
+    if(process.argv.length === 3){
+        configfile = process.argv[process.argv.length-1];
+    }
     process.on("uncaughtException", function(e){
         console.log(process.uptime());
         console.log(e.stack);
     });
-    async.waterfall(init(), function (err, result) {
+    async.waterfall(init(configfile), function (err, result) {
         if(err){
             throw err;
         }
