@@ -25,8 +25,8 @@ var update = function(func){
         update(func);
     });
 };
-var ph = new PluginHandler(["./plugins"]);
-var am = new AgentManager(["./test"]);
+var ph = new PluginHandler([]);
+var am = new AgentManager([]);
 
 var tasks = [];
 config.setup('./config/test.ini', tasks, ph, am);

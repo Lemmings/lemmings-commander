@@ -10,8 +10,8 @@ var init = function(){
     var PORT = process.env.PORT || 3000;
     var tasklists = [];
 
-    var pluginHandler = new PluginHandler(["./plugins"]);
-    var agentManager = new AgentManager(["./test"]);
+    var pluginHandler = new PluginHandler([]);
+    var agentManager = new AgentManager([]);
 
     var task = new Task(100, 1);
 
