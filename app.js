@@ -1,5 +1,4 @@
 var async = require('async');
-//var create_http_server = require('./server/http_server');
 var PluginHandler = require('./lib/plugin_handler');
 var AgentManager = require('./lib/agent_manager');
 var Task = require('./lib/task');
@@ -33,16 +32,6 @@ var init = function(){
             agentManager.heartbeat();
         });
     });
-/*
-    tasklists.push(function frontend_initialize(next){
-        var instanceHTTPServer = create_http_server();
-
-        instanceHTTPServer.listen(PORT, function(config){
-            console.log('HTTP READY PORT:' + PORT);
-            next(null);
-        });
-    });
-*/
     return tasklists;
 }
 
