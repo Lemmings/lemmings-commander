@@ -6,11 +6,12 @@
     "node": ">=0.10"
   },
   "dependencies": {
+    "node-munin-client" : "0.0.1",
+    "twitter" : "0.2.9",
+    "redis": "0.10.1",
+    "iniparser": "1.0.5",
     "event-fsm": "0.0.3",
     "request-limitter": "0.0.1",
-    "node-munin-client" : "0.0.1",
-    "iniparser": "1.0.5",
-    "redis": "0.10.1",
     "async" : "0.2.9"
   }
 }
